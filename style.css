@@ -1,0 +1,29 @@
+
+
+a {
+    color: black;
+}
+
+.mainInputs {
+    position: fixed;
+    margin-left: 30%;
+}
+
+.letterInput {
+    text-align: center;
+    border-width: 1px;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+}
+
+h1 {
+    margin: 20px;
+}
+
+#heightInput{
+    width: 50px;
+}
+#lengthInput {
+    width: 50px;
+}

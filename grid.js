@@ -40,16 +40,15 @@ function createGrid(length, width) {
         }  
         grid_container.appendChild(newRow);
     }
-    $(".letterInput").keyup(function () {
-        if (this.value.length == this.maxLength) {
-            $(this).next('.letterInput').focus();
-            // if (jQuery(this).index() === jQuery(this).siblings().length) {
-            //     jQuery(this).parent().next("div").find(".letterInput").first().focus();
-            // } else {
-            //     $(this).next('.letterInput').focus();
-            // }
-        }
-    });
+    let letterInputs = Array.from(document.getElementsByClassName("letterInput"));
+    for (let i = 0; i < letterInputs.length - 1; i++) {
+        letterInputs[i].onkeyup = (event) => {
+            // console.log(event)
+            if (/^[A-Z]$/i.test(event.key) && letterInputs[i].value.length == 1) {
+                letterInputs[i+1].focus();
+            }
+        };
+    }
 }
 
 createGrid(4,4);

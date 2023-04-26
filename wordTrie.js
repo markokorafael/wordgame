@@ -1,3 +1,4 @@
+//Implements a trie to store all english words (SOWPODS)
 function TrieNode(key) {
     this.key = key;
     this.parent = null;
@@ -48,4 +49,4 @@ for (let i in wordlist) {
     wordTrie.insert(wordlist[i]);
 }
 wordlist = null;
-console.log(wordTrie)
+// console.log(wordTrie)

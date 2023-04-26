@@ -7,7 +7,7 @@ const search_button = document.getElementById("Search");
 const highlighted_word = document.getElementById("Highlighted");
 
 input_word.addEventListener("focusout", () => { //change the grid to match the input text
-    if (input_word.value.length == 16) {//only do it if you can fill the whole grid 
+    if (input_word.value.length == input_word.maxLength) {//only do it if you can fill the whole grid 
         let index = 0;
         Array.from(document.getElementsByClassName("letterInput")).map(block => {
             block.value = input_word.value[index++].toUpperCase();
@@ -127,24 +127,6 @@ randomize_button.addEventListener("click", function() {
     } while (totalPoints < target);
     input_word.value = formed_word;
 })
-
-// randomize_button.addEventListener("click", function() {
-//     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-//     let formed_word = "";
-//     let cycles = 10000;
-//     let total = 0;
-//     for (let i = 0; i < cycles; i++) {
-//         formed_word = "";
-//         Array.from(document.getElementsByClassName("letterInput")).map(block => {
-//             block.value = alphabet[Math.floor(Math.random() * 26)];
-//             formed_word += block.value;
-//         })
-//         startSearch();
-//         total += totalPoints;
-//     } 
-//     console.log(total + "/" + cycles + " = " + total/cycles)
-//     input_word.value = formed_word;
-// })
 
 function findNeighbors(x, y) {
     //return the neighbors of (x, y) if their coordinates are valid
